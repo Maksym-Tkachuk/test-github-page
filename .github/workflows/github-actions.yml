@@ -39,13 +39,17 @@ jobs:
       run: yarn build
 
     - name: Deploy
-      run: |
-        git config --global user.name $user_name
-        git config --global user.email $user_email
-        git remote set-url origin https://${github_token}@github.com/${repository}
-        yarn deploy
-      env:
-        user_name: 'MaKs-Tkachyk'
-        user_email: 'tkachykmakc@gmail.com'
-        github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-        repository: ${{ github.repository }}
+    - uses: MaKs-Tkachyk/test-github-page@4.1.1
+    - with:
+        branch: gh-pages
+        folder: build
+      # run: |
+      #   git config --global user.name $user_name
+      #   git config --global user.email $user_email
+      #   git remote set-url origin https://${github_token}@github.com/${repository}
+      #   yarn deploy
+      # env:
+      #   user_name: 'MaKs-Tkachyk'
+      #   user_email: 'tkachykmakc@gmail.com'
+      #   github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+      #   repository: ${{ github.repository }}
