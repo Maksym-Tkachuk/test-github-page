@@ -39,8 +39,8 @@ jobs:
       run: yarn build
 
     - name: Deploy
-    - uses: MaKs-Tkachyk/test-github-page@4.1.1
-    - with:
+      uses: MaKs-Tkachyk/test-github-page@4.1.1
+      with:
         branch: gh-pages
         folder: build
       # run: |
