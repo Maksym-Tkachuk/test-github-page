@@ -20,18 +20,18 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Restore node_modules from cache
-      uses: actions/cache@v2
-      with:
-        path: |
-          node_modules
-          */*/node_modules
-        key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+    # - name: Restore node_modules from cache
+    #   uses: actions/cache@v2
+    #   with:
+    #     path: |
+    #       node_modules
+    #       */*/node_modules
+    #     key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
     - name: Install dependencies
       run: yarn
 
-    # - name: Run the tests and generate coverage report
+    # - name: Run the tests 
     #   yarn test
 
 
