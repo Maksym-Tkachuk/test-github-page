@@ -10,7 +10,9 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-
+    environment: 
+      name: GITHUB_EVENT_NAME
+      url: https://${github_token}@github.com/${repository}/GITHUB_RUN_ID
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
