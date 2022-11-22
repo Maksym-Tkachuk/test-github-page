@@ -39,8 +39,7 @@ jobs:
       run: yarn build
 
     - name: Deploy
-      run: 
-        yarn deploy
+      run:  yarn deploy
       # env:
       #   user_name: 'MaKs-Tkachyk'
       #   user_email: 'tkachykmakc@gmail.com'
