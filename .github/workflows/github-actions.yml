@@ -39,7 +39,7 @@ jobs:
 
     - name: Build
       run: yarn build
-Deploy:
+  Deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
