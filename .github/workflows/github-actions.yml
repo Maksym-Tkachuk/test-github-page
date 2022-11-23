@@ -34,12 +34,12 @@ jobs:
     environment:
       name: production_environment
       url: ${{ steps.step_id.outputs.url_output }}
-    permissions:
-      pages: write     
-      id-token: write
+    # permissions:
+    #   pages: write     
+    #   id-token: write
     steps:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
-          github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-          publish_dir: ./build
+        github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+        publish_dir: ./build
