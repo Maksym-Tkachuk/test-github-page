@@ -10,7 +10,7 @@ jobs:
       id-token: write
     environment:
       name: ${{github.ref_name}}
-      url: ${{ steps.change-page-url.outputs.new_page_url }}
+      url:  https://maks-tkachyk.github.io/test-github-page/
     runs-on: ubuntu-latest
 
     strategy:
@@ -43,10 +43,10 @@ jobs:
         user_email: 'trachykmakc@gamil.com'
         github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
         repository: ${{ github.repository }}
-        
+
     - name: Override page_url
       id: change-page-url
-      run: echo "new_page_url=${{ steps.deployment.outputs.page_url }}notebook/" >> $GITHUB_OUTPUT  
+      run: echo "new_page_url=${{ steps.deployment.outputs.page_url }}${{github.run_id}}/" >> $GITHUB_OUTPUT  
   
 
       
