@@ -4,16 +4,15 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    environment: 
-      name: production
-      url: https://${github_token}@github.com/${repository}
-      env:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
     strategy:
       matrix:
         node-version: [16.x]
+    environment: 
+      name: production
+      url: https://github.com
+      # env:
+      #   github_token: ${{ secrets.GITHUB_TOKEN }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
