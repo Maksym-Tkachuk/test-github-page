@@ -33,7 +33,7 @@ jobs:
       url: ${{steps.deployment.outputs.page_url}}
       
     steps:
-    - uses: actions/download-artifact@master
+    - uses: actions/download-artifact@1
       with:
         name: page
         path: .
@@ -42,4 +42,4 @@ jobs:
       with:
         path: .
     - id: deployment
-      uses: actions/deploy-pages@main
+      uses: actions/deploy-pages@1
