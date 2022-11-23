@@ -33,7 +33,7 @@ jobs:
     needs: build
     environment:
       name: production_environment
-      url: ${{ steps.step_id.outputs.url_output }}
+      url: ${{ steps.deployment.outputs.page_url }}
     # permissions:
     #   pages: write     
     #   id-token: write
