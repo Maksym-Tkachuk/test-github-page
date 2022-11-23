@@ -6,9 +6,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    environment: jobs.<job_id>.environment
-    url: https://${github_token}@github.com/${repository}
-    env:
+    environment: 
+      name: jobs.<job_id>.environment
+      url: https://${github_token}@github.com/${repository}
+      env:
         github_token: ${{ secrets.GITHUB_TOKEN }}
     strategy:
       matrix:
