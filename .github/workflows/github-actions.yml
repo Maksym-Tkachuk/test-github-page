@@ -6,7 +6,7 @@ jobs:
   build:
     environment:
       name: production_environment
-      url: https://github.com/MaKs-Tkachyk/test-github-page/actions/runs/3531637424
+      url: ${{ steps.step_name.outputs.url_output }}
     runs-on: ubuntu-latest
 
     strategy:
