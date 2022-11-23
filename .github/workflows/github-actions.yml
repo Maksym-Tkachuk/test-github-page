@@ -6,7 +6,7 @@ jobs:
   build:
     environment:
       name: production_environment
-      url: ${{ steps.step_id.outputs.page_url }}
+      url: jjjjj
     runs-on: ubuntu-latest
 
     strategy:
