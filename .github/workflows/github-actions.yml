@@ -10,7 +10,7 @@ jobs:
       id-token: write
     environment:
       name: ${{github.ref_name}}
-      url:  https://maks-tkachyk.github.io/test-github-page/build/index.html
+      url:  https://maks-tkachyk.github.io/test-github-page/artifacts/build/index.html
     runs-on: ubuntu-latest
 
     strategy:
