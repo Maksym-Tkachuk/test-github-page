@@ -5,8 +5,8 @@ on: [push]
 jobs:
   build:
     environment:
-      name: ${{jobs.<job_id>.environment.url}}
-      url: https://${{ github.repository }}@github.com/
+      name: ${{github.ref_name}}
+      url: https://${{ github.repository }}/github.com/
     runs-on: ubuntu-latest
 
     strategy:
