@@ -7,9 +7,10 @@ jobs:
 
     runs-on: ubuntu-latest
     environment: jobs.<job_id>.environment
+    url: https://github.com
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
