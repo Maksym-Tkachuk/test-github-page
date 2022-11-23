@@ -42,10 +42,13 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-   
+    needs: build
     environment:
       name: production_environment
       url: ${{ steps.step_id.outputs.url_output }}
+    permissions:
+      pages: write     
+      id-token: write
     steps:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
