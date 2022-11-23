@@ -15,9 +15,7 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-    environment:
-      name: production_environment
-      url: ${{ steps.step_id.outputs.url_output }}
+    
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
