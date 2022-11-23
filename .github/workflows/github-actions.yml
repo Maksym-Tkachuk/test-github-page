@@ -29,11 +29,11 @@ jobs:
       run: yarn build
 
     - name: Deploy docs to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+      id: deployment
+      uses: actions/deploy-pages@v1
     - name: Override page_url
-        id: change-page-url
-        run: echo "new_page_url=${{ steps.deployment.outputs.page_url }}notebook/" >> $GITHUB_OUTPUT  
+      id: change-page-url
+      run: echo "new_page_url=${{ steps.deployment.outputs.page_url }}notebook/" >> $GITHUB_OUTPUT  
     # - name: Deploy
     #   run: |
     #     git config --global user.name $user_name
