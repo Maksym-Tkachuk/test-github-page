@@ -7,7 +7,7 @@ jobs:
 
     runs-on: ubuntu-latest
     environment: 
-      name: jobs.<job_id>.environment
+      name: production
       url: https://${github_token}@github.com/${repository}
       env:
         github_token: ${{ secrets.GITHUB_TOKEN }}
