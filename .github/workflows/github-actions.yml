@@ -7,7 +7,9 @@ jobs:
 
     runs-on: ubuntu-latest
     environment: jobs.<job_id>.environment
-    url: https://github.com
+    url: https://${github_token}@github.com/${repository}
+    env:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     strategy:
       matrix:
         node-version: [16.x]
