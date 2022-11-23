@@ -4,18 +4,13 @@ on: [push]
 
 jobs:
   build:
-    permissions:
-      pages: write     
-      id-token: write
-    environment:
-      name: production_environment
-      url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         node-version: [14.x]
-    
+   
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -31,6 +26,21 @@ jobs:
     - name: Build
       run: yarn build
 
+  deploy:
+
+    environment:
+      name: production_environment
+      url: ${{ steps.step_id.outputs.page_url }}
+    permissions:
+      pages: write     
+      id-token: write
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
     - name: Deploy
-      id: deployment
-      uses: actions/deploy-pages@v1
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+        publish_dir: ./build
