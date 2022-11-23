@@ -41,9 +41,13 @@ jobs:
       run: yarn build
 
     - name: "Deploy"
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
-        commit_message: ${{ github.event.head_commit.message }}
-        enable_jekyll: false
+      run: |
+        git config --global user.name $user_name
+        git config --global user.email $user_email
+        git remote set-url origin https://${github_token}@github.com/${repository}
+        npm run deploy
+      env:
+        user_name: 'MaKs-Tkachyk'
+        user_email: 'tkachykmakc@gamil.com'
+        github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+        repository: ${{ github.repository }}
