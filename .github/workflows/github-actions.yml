@@ -8,9 +8,6 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-    environment: 
-      name: production
-      url: https://github.com
       # env:
       #   github_token: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -36,7 +33,15 @@ jobs:
     # - name: Run the tests
     #   yarn test
 
-
+  Deploy:
+   runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    environment: 
+      name: production
+      url: https://github.com
+    steps:
     - name: Build
       run: yarn build
 
