@@ -22,20 +22,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Restore node_modules from cache
-      uses: actions/cache@v2
-      with:
-        path: |
-          node_modules
-          */*/node_modules
-        key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
     - name: Install dependencies
       run: yarn
-
-    # - name: Run the tests
-    #   yarn test
-
 
     - name: Build
       run: yarn build
@@ -55,5 +43,5 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./build
-        commit_message: hhh
+        commit_message: ${{ github.event.head_commit.message }}
         enable_jekyll: false
