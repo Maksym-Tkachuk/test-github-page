@@ -5,18 +5,25 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: emscripten/emsdk
-      
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
     steps:
-    - uses: actions/checkout@v3
-    - run: cmake -B build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DEMSCRIPTEN=ON
-    - run: cmake --build build --config ${{env.BUILD_TYPE}}
-    - uses: actions/upload-artifact@master
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
       with:
-        name: page
-        path: build
-        if-no-files-found: error
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: yarn
+
+    - name: Build
+      run: yarn build
     
   deploy:
     runs-on: ubuntu-latest
