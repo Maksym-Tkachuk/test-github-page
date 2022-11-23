@@ -27,9 +27,9 @@ jobs:
     - name: Build
       run: yarn build
     - uses: actions/upload-artifact@v1
-    with:
-      name: build
-      path: ./build
+      with:
+        name: build
+        path: ./build
 
   deploy:
     # Add a dependency to the build job
