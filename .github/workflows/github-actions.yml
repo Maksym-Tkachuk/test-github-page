@@ -6,7 +6,7 @@ jobs:
   build:
     environment:
       name: production_environment
-      url: https://${ ${{secrets.ACTIONS_DEPLOY_ACCESS_TOKEN}} }@github.com/
+      url: https://${ ${{ github.repository }} }@github.com/
     runs-on: ubuntu-latest
 
     strategy:
