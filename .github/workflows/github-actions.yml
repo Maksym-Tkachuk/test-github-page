@@ -10,7 +10,7 @@ jobs:
         node-version: [16.x]
     environment: 
       name: production
-      url: https://github.com/${repository}
+      url: https://github.com
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
