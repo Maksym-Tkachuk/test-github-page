@@ -4,7 +4,12 @@ on: [push]
 
 jobs:
   build:
-
+    permissions:
+      pages: write     
+      id-token: write
+    environment:
+      name: production_environment
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
     strategy:
@@ -28,21 +33,6 @@ jobs:
     - name: Build
       run: yarn build
 
-  deploy:
-
-    needs: build
-    environment:
-      name: production_environment
-      url: ${{ steps.deployment.outputs.page_url }}
-    permissions:
-      pages: write     
-      id-token: write
-    runs-on: ubuntu-latest
-    steps:
     - name: Deploy
-      uses: tanwanimohit/deploy-react-to-ghpages@v1.0.1
-      # id: deployment
-      # uses: actions/deploy-pages@v1
-      # with:
-      #   github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-      #   publish_dir: ./build
+      id: deployment
+      uses: actions/deploy-pages@v1
