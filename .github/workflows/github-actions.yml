@@ -6,7 +6,7 @@ jobs:
   build:
     environment:
       name: ${{github.ref_name}}
-      url: https://${{github.repository_owner}}.github.io/test-github-page/about/index.html
+      url: https://maks-tkachyk.github.io/test-github-page/
     runs-on: ubuntu-latest
 
     strategy:
