@@ -34,7 +34,7 @@ jobs:
     #   yarn test
 
   Deploy:
-   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [16.x]
