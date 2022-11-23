@@ -10,9 +10,7 @@ jobs:
         node-version: [16.x]
     environment: 
       name: production
-      url: https://${github_token}@github.com/${repository}
-      env:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+      url: https://github.com/${repository}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
