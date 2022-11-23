@@ -47,8 +47,6 @@ jobs:
       name: production_environment
       url: ${{ steps.step_id.outputs.url_output }}
     steps:
-      name: production_environment
-      url: ${{ steps.step_id.outputs.url_output }}
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
