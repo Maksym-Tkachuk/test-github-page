@@ -30,7 +30,7 @@ jobs:
     - name: Build
       run: yarn build
 
-   deploy:
+  deploy:
     # Add a dependency to the build job
     needs: build
 
